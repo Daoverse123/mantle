@@ -6,9 +6,14 @@ function Nav() {
       className="mt-[70px] max-[1320px]:mt-[33px] mb-[0] flex
        w-[1300px] max-[1320px]:w-[95%] h-[100px] max-[425px]:64px outline outline-white m-auto rounded-[36px] px-[34px] items-center"
     >
-      <picture>
+      <picture
+        onClick={() => {
+          const newTab = window.open("https://truts.xyz", "_blank");
+          newTab?.focus(); // Optional: Set focus on the new tab
+        }}
+      >
         <img
-          className="w-[255px] object-contain max-[940px]:w-[170px]"
+          className="w-[255px] object-contain max-[940px]:w-[170px] cursor-pointer"
           src="/logo.svg"
           alt=""
         />

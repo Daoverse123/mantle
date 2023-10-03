@@ -11,15 +11,7 @@ const Sidebar = () => {
             "XP : Low to High",
           ]}
         />
-        <Selector
-          title="Sort by"
-          options={[
-            "All",
-            "Alphabetical Order",
-            "XP : High to Low",
-            "XP : Low to High",
-          ]}
-        />
+
         <Selector title="Type" options={["All", "Task", "Quiz"]} />
         <Selector
           title="Completion"

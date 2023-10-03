@@ -37,9 +37,9 @@ function MissionPage() {
           <h1 className="text-[40px] max-[670px]:text-[24px] max-[320px]:text-[20px]">
             MANTLE Partner Missions
           </h1>
-          <p className="text-[20px] text-[#A4A9B6] max-[670px]:text-[16px] max-[320px]:text-[14px]">
+          {/* <p className="text-[20px] text-[#A4A9B6] max-[670px]:text-[16px] max-[320px]:text-[14px]">
             Mantle missions description
-          </p>
+          </p> */}
         </span>
       </div>
 
