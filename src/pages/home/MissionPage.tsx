@@ -17,12 +17,25 @@ const fetchMission = async (setter: (data: any) => void) => {
   }
 };
 
+const fetchMissionDemex = async (setter: (data: any) => void) => {
+  let res = await axios(
+    "https://api.truts.xyz/api/v1/public/listing/647480e6ac155b8e92a92db3/missions"
+  );
+  if (res.status == 200) {
+    setter(res.data.data.missions);
+  }
+};
+
 function MissionPage() {
   const [data, setdata] = useState<null | any>(null);
+  const [demaxdata, setdemaxdata] = useState<null | any>(null);
 
   useEffect(() => {
     fetchMission((data) => {
       setdata(data);
+    });
+    fetchMissionDemex((data) => {
+      setdemaxdata(data);
     });
   }, []);
   console.log(data);
@@ -47,11 +60,21 @@ function MissionPage() {
         <div className="flex w-full outline">
           <Sidebar />
           <div className="flex flex-col ml-[34px] w-full max-[670px]:mt-0 max-[425px]:ml-0  max-[425px]:px-2">
-            <span className="mt-14 flex flex-col w-full mb-16 border-b border-b-[#a4a9b6a1]  max-[425px]:items-start">
+            <span className="mt-14 flex flex-col w-full max-[425px]:items-start">
               <h3 className="gradText text-lg font-medium mb-4">Mantle</h3>
               <span className="flex w-full flex-wrap gap-3 mb-4 max-[425px]:justify-center">
                 {data &&
                   data.map((dt: any, idx: number) => {
+                    return <MissionCard data={dt} key={idx + "card"} />;
+                  })}
+              </span>
+            </span>
+            {/* demex */}
+            <span className="mt-14 flex flex-col w-full mb-16 border-b border-b-[#a4a9b6a1]  max-[425px]:items-start">
+              <h3 className="gradText text-lg font-medium mb-4">Demex</h3>
+              <span className="flex w-full flex-wrap gap-3 mb-4 max-[425px]:justify-center">
+                {demaxdata &&
+                  demaxdata.map((dt: any, idx: number) => {
                     return <MissionCard data={dt} key={idx + "card"} />;
                   })}
               </span>
